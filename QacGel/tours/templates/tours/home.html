@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QaçGəl Turizm Agentliyi</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>QaçGəl - Sürətli Turizm Agentliyi</h1>
+        <nav>
+            <a href="{% url 'home' %}">Ana Səhifə</a> |
+            <a href="{% url 'contact' %}">Əlaqə</a>
+        </nav>
+    </header>
+
+    <section class="tour-packages">
+        <h2>Tur Paketləri</h2>
+        <div class="tour-list">
+            {% for tour in tours %}
+                <div class="tour-item">
+                    <img src="{{ tour.image.url }}" alt="{{ tour.name }}">
+                    <h3>{{ tour.name }}</h3>
+                    <p>{{ tour.description|truncatewords:30 }}</p>
+                    <p><strong>Qiymət:</strong> {{ tour.price }} AZN</p>
+                    <a href="{% url 'tour_detail' tour.id %}" class="button">Daha Ətraflı</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QaçGəl Turizm Agentliyi. Bütün hüquqlar qorunur.</p>
+    </footer>
+</body>
+</html>

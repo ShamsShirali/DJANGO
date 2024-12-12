@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Əlaqə - QaçGəl</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>QaçGəl - Əlaqə</h1>
+        <nav>
+            <a href="{% url 'home' %}">Ana Səhifə</a> |
+            <a href="{% url 'contact' %}">Əlaqə</a>
+        </nav>
+    </header>
+
+    <section class="contact-form">
+        <h2>Bizimlə Əlaqə</h2>
+        <form action="#" method="post">
+            <label for="name">Adınız:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-poçt:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mesaj:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="button">Göndər</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QaçGəl Turizm Agentliyi. Bütün hüquqlar qorunur.</p>
+    </footer>
+</body>
+</html>
